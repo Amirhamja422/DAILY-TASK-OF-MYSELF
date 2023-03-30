@@ -1,0 +1,148 @@
+
+						--- Export iTicket Report ---  
+							I HELP BD
+						Customer Relationship Department
+
+						As on 2020-10-04 To 2020-10-04
+
+
+ID	Department	Complain Nature	Service	Issue	Raised	Assigned	Customer Name	Customer Phone No	Card No	Acc No	Email	Detailes	Last Details	Last Status	Create Date	1 Details Date	Status	User	Remarks	2 Details Date	Status	User	Remarks	3 Details Date	Status	User	Remarks	4 Details Date	Status	User	Remarks	5 Details Date	Status	User	Remarks	
+68	Alternate channel related issue	Mobile Banking	SMS banking related issue	SMS banking related issue		Apps	abcd	1342453533	454545	67356386483	abcd@gmail.com	Test	Last Details	Work in progress	2020-10-04 12:31:41	2020-10-04 12:31:41	New		A/C or Card no:12345
+
+Previous Data (address/cell no/email address/DOB)
+New Static Data (address/cell no/ email address/DOB)
+Application submission date :12345
+Application submission Branch :12345
+	2020-10-04 12:45:11	Work in progress	941	A/C or Card no:12345
+
+Previous Data (address/cell no/email address/DOB)
+New Static Data (address/cell no/ email address/DOB)
+Application submission date :12345
+Application submission Branch :12345
+	2020-10-04 12:58:43	Transferred	954	A/C or Card no:12345
+
+Previous Data (address/cell no/email address/DOB)
+New Static Data (address/cell no/ email address/DOB)
+Application submission date :12345
+Application submission Branch :12345
+	2020-10-04 13:16:34	Work in progress	958	A/C or Card no:12345
+
+Previous Data (address/cell no/email address/DOB)
+New Static Data (address/cell no/ email address/DOB)
+Application submission date :12345
+Application submission Branch :12345
+	
+69	Card OPs	Debit Cards/Credit Cards/ATM Card	Debit Card Maintenance & issuance	Credit Card closure related issue		shafiqulis	farjana	01982736451	67890	12345	farjana.akter@lenden365	Test	Last Details	Closed	2020-10-04 13:08:24	2020-10-04 13:08:24	New		Customer Name:farjana
+
+Card No:67890
+
+Contact number:
+
+Dispute amount 1:
+
+Dispute amount 2:
+
+Dispute amount 3:
+
+Dispute Date:&nbsp;
+
+ATM/Merchant Name and area:
+
+Application submission date and branch:
+
+E-mail address:
+	2020-10-04 13:11:39	Solved	943	Customer Name:farjana
+
+Card No:67890
+
+Contact number:
+
+Dispute amount 1:
+
+Dispute amount 2:
+
+Dispute amount 3:
+
+Dispute Date:&nbsp;
+
+ATM/Merchant Name and area:
+
+Application submission date and branch:
+
+E-mail address:
+	2020-10-04 13:39:05	Closed	931	Customer Name:farjana
+
+Card No:67890
+
+Contact number:
+
+Dispute amount 1:
+
+Dispute amount 2:
+
+Dispute amount 3:
+
+Dispute Date:&nbsp;
+
+ATM/Merchant Name and area:
+
+Application submission date and branch:
+
+E-mail address:
+	
+70	Alternate channel related issue	Internet Banking	Internet banking related issue	Internet Banking related issue		mahamuda	S M Russel	5555555555555	22222	77777	desertroseboy@gmail.com	Test	Last Details	Extended	2020-10-04 13:30:34	2020-10-04 13:30:34	New		A/C name :
+A/C number :
+Mobile no :
+E-mail address :&nbsp;
+
+App sub date &amp; Branch:
+	2020-10-04 13:34:27	Extended	936	A/C name :
+A/C number :
+Mobile no :
+E-mail address :&nbsp;
+
+App sub date &amp; Branch:
+	2020-10-04 13:41:32	Extended	898	A/C name :
+A/C number :
+Mobile no :
+E-mail address :&nbsp;
+
+App sub date &amp; Branch:
+	
+71	Card OPs	Loans & Advances	Loan product related issue	EMI related issue		amirulislam	happy	0134465	4344344	212121	tania@gmail.com	Test	Last Details	Transferred	2020-10-04 15:01:02	2020-10-04 15:01:02	New		Customer name :
+Client id :
+Card no :
+Address (For Hard copy statement) :
+E-mail address (For E-statement) &amp; Mention Specific month :&nbsp;
+	2020-10-04 15:03:06	Transferred	932	Customer name :
+Client id :
+Card no :
+Address (For Hard copy statement) :
+E-mail address (For E-statement) &amp; Mention Specific month :&nbsp;
+	
+72	Card OPs	Debit Cards/Credit Cards/ATM Card	Debit Card Maintenance & issuance	Debit Card not working		shafiqulis	sumu	895690	78606	985694	sumu@gmail.com	Test	Last Details	Solved	2020-10-04 15:11:48	2020-10-04 15:11:48	New		CIF:
+
+email:
+
+DOB:
+	2020-10-04 15:13:38	New	943	CIF:
+
+email:
+
+DOB:
+	2020-10-04 15:14:18	Solved	943	CIF:
+
+email:
+
+DOB:
+	2020-10-04 15:18:44	Solved	940	CIF:
+
+email:
+
+DOB:
+	2020-10-04 15:29:20	Solved	931	CIF:
+
+email:
+
+DOB:
+	

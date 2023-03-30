@@ -1,0 +1,306 @@
+<?php
+$suc=NULL;
+$fail=NULL;
+
+if(isset($_POST['addsub']))
+{
+  include '../db.php';
+
+  $second = ($_POST['hour_time']*3600);
+  if(mysql_query("INSERT INTO sub_group (`user_group_id`,`ticket_type_id`,`sub_group_name`,`hour_time`) VALUES ('".$_POST['group']."','".$_POST['ticket']."','".$_POST['sub_group']."', '".$second."')")){
+    $suc="Sub Group Inserted Successfully";
+  }else{
+    $fail="Faild to create sub geoup";
+  }
+
+}
+include 'header.php';
+?>
+<main class="py-4">
+    <div class="modal fade" id="addIssue" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+                <form class="form-horizontal" action="#" method="POST" id="myform">
+                    <div class="col-md-12" style="float: left; padding: 10px;">
+                        <div class="col-sm-4 control-label" style="float: left;">Department:</div>
+                        <div class="col-sm-8" style="float: left;">
+                          <select class="form-control" name="group" id="group">
+                            <option>Select A Group</option>
+                            <?php
+                            $result1 = mysql_query("select *FROM user_group ORDER BY group_name ASC");
+                            while ($row = mysql_fetch_array($result1)) {
+                              ?>
+                              <option value="<?= $row['id'] ?>">
+                                <?= $row['group_name'] ?>
+                            </option>
+                        <? } ?>
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12" style="float: left; padding: 10px;">
+                <div class="col-sm-4" style="float: left;">Service:</div>
+                <div class="col-sm-8" style="float: left;">
+                  <select class="form-control" name="ticket" id="type">
+                    <option>Select A Ticket Type</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-12" style="float: left; padding: 10px;">
+            <div class="col-sm-4" style="float: left;">Complaint Type:</div>
+            <div class="col-sm-8" style="float: left;">
+              <input type="text" class="form-control" id="sub_group" placeholder="Enter Sub-group Name" name="sub_group" required="required">
+            </div>
+        </div>
+
+        <div class="col-md-12" style="float: left; padding: 10px;">
+          <div class="col-sm-4" style="float: left;">Exiting time:</div>
+          <div class="col-sm-8" style="float: left;">
+            <input type="number" class="form-control" id="hour_time" placeholder="Enter Time (Hour)" name="hour_time" required="required">
+          </div>
+        </div>
+
+        <div class="col-md-12" style="float: left; padding: 10px;">
+            <div class="col-sm-4" style="float: left; visibility: hidden;">Button</div>
+            <div class="col-sm-8" style="float: left;">
+                <input type="submit" name="addsub" value="Submit" class="btn btn-success">
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Complaint Type<button class="btn btn-outline-primary btn-sm float-right" data-toggle="modal" data-target="#addIssue" onclick="addIssue()">Add Complaint Type</button><span class="float-right" id="msg" style="color: red; margin-right: 16px;"></span></div>
+
+                    <div class="card-body" id="table" class="table-editable">
+                        <?php
+                        if($suc != NULL){?>
+                            <div class="btn-success text-center" style="font-size: 25px;">
+                                <?php 
+                                    echo $suc;
+                                    unset($suc);
+                                    echo "<script>
+                              setTimeout(function () {
+                                  window.location.replace('". $_SERVER['REQUEST_URI']."')
+                              }, 3000);
+                          </script>";
+                                ?>
+                            </div>
+                            <?php
+                        }
+                        if ($fail != NULL) {?>
+                            <div class="btn-danger text-center" style="font-size: 25px;">
+                                <?php 
+                                    echo $fail;
+                                    unset($fail);
+                                    echo "<script>setTimeout(function () {
+                                  window.location.replace('". $_SERVER['REQUEST_URI']."')
+                              }, 3000);</script>";
+                                ?>
+                            </div>
+                            <?php
+                        }
+
+                        ?>
+                        <table class="table table-bordered" id="testing">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Service</th>
+                                    <th scope="col">Complaint Type</th>
+                                    <th scope="col">SLA Min</th>
+                                    <th scope="col"><img src="idebnath/delete.png" style="cursor:pointer;"></th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr>
+                                    <?php include 'bralist2sub.php'; ?>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+</div>
+<script type="text/javascript">
+  $('#group').change(function(e){
+    var id = $("#group").val();
+
+    $.ajax({
+      data: "id="+id,
+      url: "../kullu/change_2.php",
+      type: "GET",
+      success: function(data){
+        document.getElementById("type").innerHTML = data;
+      }
+    });                                
+  });
+
+  $('#type').change(function(e){
+    var id = $("#group").val();
+    var type_id = $("#type").val();
+
+    $.ajax({
+      data: "id="+id+"&type="+type_id,
+      url: "../kullu/change_3.php",
+      type: "GET",
+      success: function(data){
+        document.getElementById("sub_group").innerHTML = data;
+      }
+    });
+
+    $.ajax({
+      data: "id="+id+"&type_id="+type_id,
+      url: "../kullu/change_0.php",
+      type: "GET",
+      success: function(data){
+        document.getElementById("to").innerHTML = data;
+      }
+    });
+  });
+
+
+  const $tableID = $('#table');
+  const $BTN = $('#export-btn');
+  const $EXPORT = $('#export');
+
+  const newTr = `
+  <tr class="hide">
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half">
+  <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+  <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+  </td>
+  <td>
+  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+  </td>
+  </tr>`;
+
+  $('.table-add').on('click', 'i', () => {
+
+   const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
+
+   if ($tableID.find('tbody tr').length === 0) {
+
+     $('tbody').append(newTr);
+   }
+
+   $tableID.find('table').append($clone);
+ });
+
+  $tableID.on('click', '.table-remove', function () {
+
+   $(this).parents('tr').detach();
+ });
+
+  $tableID.on('click', '.table-up', function () {
+
+   const $row = $(this).parents('tr');
+
+   if ($row.index() === 0) {
+     return;
+   }
+
+   $row.prev().before($row.get(0));
+ });
+
+  $tableID.on('click', '.table-down', function () {
+
+   const $row = $(this).parents('tr');
+   $row.next().after($row.get(0));
+ });
+
+     // A few jQuery helpers for exporting only
+     jQuery.fn.pop = [].pop;
+     jQuery.fn.shift = [].shift;
+
+     $BTN.on('click', () => {
+
+       const $rows = $tableID.find('tr:not(:hidden)');
+       const headers = [];
+       const data = [];
+
+       // Get the headers (add special header logic here)
+       $($rows.shift()).find('th:not(:empty)').each(function () {
+
+         headers.push($(this).text().toLowerCase());
+       });
+
+       // Turn all existing rows into a loopable array
+       $rows.each(function () {
+         const $td = $(this).find('td');
+         const h = {};
+
+         // Use the headers from earlier to name our hash keys
+         headers.forEach((header, i) => {
+
+           h[header] = $td.eq(i).text();
+         });
+
+         data.push(h);
+       });
+
+       // Output the result
+       $EXPORT.text(JSON.stringify(data));
+     });
+
+
+
+     function update_service(el)
+     {
+      var id = el.getAttribute('service_id');
+      var service = $("#service"+id).text();
+
+      $.ajax({
+        data: "id="+id+"&service="+service,
+        url: "../kullu/updateIssue.php",
+        type: "GET",
+        success: function(res){
+          $("#msg").text(res);
+
+          setTimeout(function() {
+            $('#msg').text(" ");
+          }, 3000);
+        }
+      });
+    }
+
+  function update_hour_time(id)
+    {
+      var hour_time = $("#hour_time"+id).text();
+
+      $.ajax({
+        data: "id="+id+"&hour_time="+hour_time,
+        url: "../kullu/updateSrvice.php",
+        type: "GET",
+        success: function(res){
+          $("#msg").text(res);
+
+          setTimeout(function() {
+            $('#msg').text(" ");
+          }, 3000);
+        }
+      });
+    }
+</script>
+
+
+<?php include 'footer.php';?>

@@ -1,0 +1,11 @@
+Re-check on Ticket panel:
+
+1. Rename CRM as CTI
+2. In i-ticket search option A/C no and Credit card no are added and all the option (Ticket id, Phone, Employee and Status ) are activated.
+3.Attachment option is now available in the remark.
+4. "Subject" is available in Email.
+5.Sms option is available but recipient didn't receive the sms.
+6.Branch location field and address of the branch is updated.
+7.In closure,3 options (closed,re-route,extended) are added.
+8."BEFTN/RTGS" and "charge related issue is removed" are removed.
+9.Credit card/Debit card ecommerce related issue is added.
